@@ -16,7 +16,7 @@ export default function Welcome({ onNext }) {
 
       const interval = setInterval(() => {
         confetti({
-          particleCount: 35,
+          particleCount: 15,
           spread: 90,
           startVelocity: 35,
           origin: { x: 0.2, y: 0.5 },
@@ -24,7 +24,7 @@ export default function Welcome({ onNext }) {
         });
 
         confetti({
-          particleCount: 35,
+          particleCount: 15,
           spread: 90,
           startVelocity: 35,
           origin: { x: 0.8, y: 0.5 },
@@ -34,7 +34,7 @@ export default function Welcome({ onNext }) {
         if (Date.now() >= end) {
           clearInterval(interval);
         }
-      }, 450);
+      }, 700);
 
       return () => clearInterval(interval);
     }, 600);

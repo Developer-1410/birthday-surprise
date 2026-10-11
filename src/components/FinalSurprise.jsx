@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import Fireworks from "./Fireworks";
 import "../styles/final.css";
 
-const stars = Array.from({ length: 65 }, (_, i) => ({
+const stars = Array.from({ length: 35 }, (_, i) => ({
   id: i,
   left: `${(i * 73.7 + 13) % 100}%`,
   top: `${(i * 47.3 + 7) % 100}%`,
@@ -26,30 +26,7 @@ export default function FinalSurprise() {
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  useEffect(() => {
-    if (stage < 1) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    const colors = [
-      "#ff69b4",
-      "#ffb6c1",
-      "#ffd700",
-      "#ffffff",
-      "#c084fc",
-      "#ff4d8d",
-    ];
-
-    
-
-    const interval = setInterval(
-      stage >= 5 ? 2000 : 650
-    );
-
-    return () => clearInterval(interval);
-  }, [stage]);
+  
 
   return (
     <main className="final-page">

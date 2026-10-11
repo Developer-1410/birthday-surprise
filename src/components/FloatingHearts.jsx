@@ -1,7 +1,7 @@
 
 import "./../styles/animations.css";
 
-const hearts = Array.from({ length: 18 }, (_, index) => ({
+const hearts = Array.from({ length: 10 }, (_, index) => ({
   id: index,
   left: `${(index * 37 + 11) % 100}%`,
   delay: `${(index % 9) * -1.4}s`,

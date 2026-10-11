@@ -15,7 +15,7 @@ export default function GiftSurprise({ onNext }) {
 
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       confetti({
-        particleCount: 180,
+        particleCount: 80,
         spread: 120,
         startVelocity: 45,
         origin: { y: 0.55 },

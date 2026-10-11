@@ -17,7 +17,10 @@ function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{
+          duration: 0.25,
+          ease: "easeOut",
+        }}
       >
         {page === 1 && (
           <Welcome onNext={() => setPage(2)} />
@@ -28,18 +31,18 @@ function App() {
         )}
 
         {page === 3 && (
-  <GiftSurprise onNext={() => setPage(4)} />
-)}
+          <GiftSurprise onNext={() => setPage(4)} />
+        )}
 
-{page === 4 && (
-  <SpecialReasons onNext={() => setPage(5)} />
-)}
+        {page === 4 && (
+          <SpecialReasons onNext={() => setPage(5)} />
+        )}
 
-{page === 5 && (
-  <SpecialLetter onNext={() => setPage(6)} />
-)}
+        {page === 5 && (
+          <SpecialLetter onNext={() => setPage(6)} />
+        )}
 
-{page === 6 && <FinalSurprise />}
+        {page === 6 && <FinalSurprise />}
       </motion.div>
     </AnimatePresence>
   );

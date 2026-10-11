@@ -33,3 +33,39 @@ button:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================
+   MOBILE PERFORMANCE OPTIMIZATION
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* Prevent unnecessary horizontal scrolling */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  /* Improve rendering of animated elements */
+  .floating-heart,
+  .floating-hearts span {
+    backface-visibility: hidden;
+  }
+
+  /* Reduce expensive blur effects */
+  .glass-card,
+  .glass-panel {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+}
+
+/* Respect device accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

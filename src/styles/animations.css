@@ -12,12 +12,12 @@
   bottom: -60px;
   opacity: 0;
   animation: floatHeart 12s linear infinite;
-  will-change: transform;
+  backface-visibility: hidden;
 }
 
 @keyframes floatHeart {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 0;
   }
 
@@ -30,7 +30,7 @@
   }
 
   100% {
-    transform: translateY(-115vh) rotate(35deg);
+    transform: translate3d(0, -115vh, 0) rotate(35deg);
     opacity: 0;
   }
 }

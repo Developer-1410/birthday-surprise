@@ -34,7 +34,7 @@ export default function Fireworks({ active = true }) {
     const particles = [];
 
     const resize = () => {
-      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
       width = window.innerWidth;
       height = window.innerHeight;
 
@@ -65,7 +65,7 @@ export default function Fireworks({ active = true }) {
     };
 
     const explode = (x, y, color) => {
-      const count = width < 500 ? 65 : 110;
+      const count = width < 500 ? 30 : 65;
       const offset = Math.random() * Math.PI * 2;
 
       for (let i = 0; i < count; i++) {
@@ -89,12 +89,12 @@ export default function Fireworks({ active = true }) {
     const draw = (time) => {
       animationId = requestAnimationFrame(draw);
 
-      if (time - lastFrame < 1000 / 60) return;
+      if (time - lastFrame < 1000 / 30) return;
       lastFrame = time;
 
       ctx.clearRect(0, 0, width, height);
 
-      const launchDelay = width < 500 ? 950 : 650;
+      const launchDelay = width < 500 ? 1500 : 1000;
 
       if (time - lastLaunch > launchDelay) {
         launchRocket();
@@ -105,7 +105,7 @@ export default function Fireworks({ active = true }) {
         const rocket = rockets[i];
 
         rocket.trail.push({ x: rocket.x, y: rocket.y });
-        if (rocket.trail.length > 12) rocket.trail.shift();
+        if (rocket.trail.length > 7) rocket.trail.shift();
 
         rocket.y -= rocket.speed;
 
@@ -118,7 +118,7 @@ export default function Fireworks({ active = true }) {
 
         ctx.strokeStyle = rocket.color;
         ctx.lineWidth = 2;
-        ctx.shadowBlur = 15;
+        ctx.shadowBlur = 6;
         ctx.shadowColor = rocket.color;
         ctx.stroke();
 
@@ -137,7 +137,7 @@ export default function Fireworks({ active = true }) {
         const p = particles[i];
 
         p.trail.push({ x: p.x, y: p.y });
-        if (p.trail.length > 7) p.trail.shift();
+        if (p.trail.length > 4) p.trail.shift();
 
         p.x += p.vx;
         p.y += p.vy;
@@ -149,7 +149,7 @@ export default function Fireworks({ active = true }) {
         ctx.globalAlpha = Math.max(p.alpha, 0);
         ctx.strokeStyle = p.color;
         ctx.shadowColor = p.color;
-        ctx.shadowBlur = 12;
+        ctx.shadowBlur = 0;
         ctx.lineWidth = p.size;
 
         ctx.beginPath();

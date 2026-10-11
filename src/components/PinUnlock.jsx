@@ -23,7 +23,7 @@ export default function PinUnlock({ onNext }) {
 
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         confetti({
-          particleCount: 130,
+          particleCount: 60,
           spread: 100,
           origin: { y: 0.6 },
           colors: ["#ff69b4", "#ffb6c1", "#ffd700", "#ffffff"],
