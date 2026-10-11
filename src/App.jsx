@@ -6,11 +6,14 @@ import GiftSurprise from "./components/GiftSurprise";
 import SpecialReasons from "./components/SpecialReasons";
 import SpecialLetter from "./components/SpecialLetter";
 import FinalSurprise from "./components/FinalSurprise";
+import MusicPlayer from "./components/MusicPlayer";
 
 function App() {
   const [page, setPage] = useState(1);
 
   return (
+    <div className="app">
+      <MusicPlayer page={page}/>
     <AnimatePresence mode="sync" initial={false}>
       <motion.div
   key={page}
@@ -45,6 +48,7 @@ function App() {
         {page === 6 && <FinalSurprise />}
       </motion.div>
     </AnimatePresence>
+    </div>
   );
 }
 
