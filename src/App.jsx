@@ -11,7 +11,7 @@ function App() {
   const [page, setPage] = useState(1);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={page}
         initial={{ opacity: 0 }}
