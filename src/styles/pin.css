@@ -209,3 +209,31 @@
     margin-bottom: 18px;
   }
 }
+
+/* Six-digit PIN optimization */
+
+.pin-input-wrapper {
+  max-width: 340px;
+}
+
+.pin-boxes {
+  gap: 8px;
+}
+
+.pin-box {
+  width: 46px;
+  height: 55px;
+  flex-shrink: 1;
+}
+
+@media (max-width: 480px) {
+  .pin-boxes {
+    gap: 5px;
+  }
+
+  .pin-box {
+    width: 38px;
+    height: 48px;
+    font-size: 21px;
+  }
+}

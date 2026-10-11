@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import FloatingHearts from "./FloatingHearts";
 import "../styles/pin.css";
 
-const SECRET_PIN = "1410";
+const SECRET_PIN = "142010";
 
 export default function PinUnlock({ onNext }) {
   const [pin, setPin] = useState("");
@@ -84,7 +84,7 @@ export default function PinUnlock({ onNext }) {
             onAnimationComplete={() => setError(false)}
           >
             <div className="pin-boxes" aria-hidden="true">
-              {[0, 1, 2, 3].map((index) => (
+              {[0, 1, 2, 3, 4, 5].map((index) => (
                 <div
                   key={index}
                   className={`pin-box ${pin.length > index ? "filled" : ""}`}
@@ -99,13 +99,13 @@ export default function PinUnlock({ onNext }) {
               type="text"
               inputMode="numeric"
               autoComplete="off"
-              maxLength={4}
+              maxLength={6}
               value={pin}
               onChange={(e) => {
-                setPin(e.target.value.replace(/\D/g, "").slice(0, 4));
+                setPin(e.target.value.replace(/\D/g, "").slice(0, 6));
                 setError(false);
               }}
-              aria-label="Enter your four-digit birthday PIN"
+              aria-label="Enter your six-digit birthday PIN"
               disabled={unlocked}
               required
             />
@@ -128,7 +128,7 @@ export default function PinUnlock({ onNext }) {
           <motion.button
             className="pin-button"
             type="submit"
-            disabled={pin.length !== 4 || unlocked}
+            disabled={pin.length !== 6 || unlocked}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
           >
