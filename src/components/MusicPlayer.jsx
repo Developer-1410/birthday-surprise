@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 const SONGS = [
   {
     src: `${import.meta.env.BASE_URL}music/ishq-hai.mp3`,
-    start: 85, // 1:25
+    start: 75, // 1:25
   },
   {
     src: `${import.meta.env.BASE_URL}music/mast-magan.mp3`,
@@ -187,6 +187,18 @@ export default function MusicPlayer({ page }) {
     window.removeEventListener("pointerdown", startOnInteraction);
     window.removeEventListener("keydown", startOnInteraction);
   };
+}, []);
+
+
+useEffect(() => {
+  const tryAutoplay = () => {
+    if (playingRef.current) return;
+
+    startSong(songIndex);
+    activeIndex.current = songIndex;
+  };
+
+  tryAutoplay();
 }, []);
 
   const toggleMusic = async () => {
