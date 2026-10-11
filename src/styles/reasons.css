@@ -1,0 +1,253 @@
+
+.reasons-page {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 15%, #fff8fc, transparent 40%),
+    radial-gradient(circle at 85% 85%, #ffb5cd, transparent 45%),
+    linear-gradient(135deg, #ffe5ef, #ffc8db, #f8a9c4);
+}
+
+.reasons-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+}
+
+.reasons-teddy {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+
+.reasons-small-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #b64e75;
+  margin-bottom: 12px;
+}
+
+.reasons-heading {
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.2;
+  color: #a12e58;
+  margin-bottom: 15px;
+}
+
+.reasons-heading span {
+  display: block;
+  font-style: italic;
+  color: #df5288;
+}
+
+.reasons-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #89516a;
+  margin-bottom: 25px;
+}
+
+.reasons-card-area {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 310px;
+  margin: 0 auto 25px;
+}
+
+.reasons-card-back,
+.reason-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  background: #fff3f7;
+  border: 1px solid #ffffff;
+  box-shadow: 0 15px 35px #ba507933;
+}
+
+.back-one {
+  transform: rotate(-7deg) translateX(-8px);
+  opacity: 0.65;
+}
+
+.back-two {
+  transform: rotate(6deg) translateX(8px);
+  opacity: 0.8;
+}
+
+.reason-card {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.reason-number {
+  position: absolute;
+  top: 22px;
+  color: #d46b92;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.reason-emoji {
+  font-size: 55px;
+  margin: 20px 0 15px;
+}
+
+.reason-card h2 {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #a12e58;
+  margin-bottom: 15px;
+}
+
+.reason-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #89516a;
+  max-width: 300px;
+}
+
+.reason-card-heart {
+  position: absolute;
+  bottom: 15px;
+  color: #e86b9a;
+  font-size: 25px;
+}
+
+.reasons-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.reason-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f3a2c0;
+  transition: 0.3s;
+}
+
+.reason-dot.active {
+  width: 22px;
+  border-radius: 10px;
+  background: #cf3d75;
+}
+
+.reasons-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.reason-next-button {
+  border: none;
+  border-radius: 50px;
+  padding: 15px 28px;
+  background: linear-gradient(135deg, #f46c9b, #cb376c);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #d0447644;
+}
+
+.reason-back-button {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: #fff0f5;
+  color: #bf3b6d;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .reasons-card-area {
+    max-width: 350px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .reasons-page {
+    padding: 22px 20px;
+  }
+
+  .reasons-teddy {
+    font-size: 55px;
+  }
+
+  .reasons-heading {
+    font-size: 29px;
+  }
+
+  .reasons-description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .reasons-card-area {
+    max-width: 290px;
+    height: 290px;
+    margin-bottom: 22px;
+  }
+
+  .reason-card {
+    padding: 20px;
+  }
+
+  .reason-card h2 {
+    font-size: 21px;
+  }
+
+  .reason-card p {
+    font-size: 13px;
+  }
+
+  .reason-emoji {
+    font-size: 45px;
+  }
+
+  .reason-next-button {
+    padding: 14px 20px;
+    font-size: 13px;
+  }
+
+  .reason-back-button {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-height: 650px) {
+  .reasons-page {
+    padding: 15px;
+  }
+
+  .reasons-teddy {
+    font-size: 45px;
+  }
+
+  .reasons-card-area {
+    height: 260px;
+  }
+}

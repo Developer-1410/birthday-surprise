@@ -1,0 +1,255 @@
+
+.letter-page {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 15% 15%, #fff8fc, transparent 40%),
+    radial-gradient(circle at 85% 85%, #ffb5cd, transparent 45%),
+    linear-gradient(135deg, #ffe5ef, #ffc8db, #f8a9c4);
+}
+
+.letter-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.letter-teddy {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+
+.letter-small-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #b64e75;
+  margin-bottom: 12px;
+}
+
+.letter-heading {
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.2;
+  color: #a12e58;
+  margin-bottom: 15px;
+}
+
+.letter-heading span {
+  display: block;
+  font-style: italic;
+  color: #df5288;
+}
+
+.letter-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #89516a;
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+
+.letter-envelope-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
+  padding-top: 50px;
+}
+
+.letter-envelope {
+  position: relative;
+  width: 290px;
+  height: 190px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 15px 20px #b9477655);
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #e96a9b;
+  border-radius: 8px;
+}
+
+.envelope-paper {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  background: #fff8fb;
+  left: 7.5%;
+  top: 5%;
+  border-radius: 5px;
+  transform: translateY(-20px);
+  box-shadow: 0 5px 15px #a6376b33;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ff9fc3, #f26b9e);
+  clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 8px;
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: #ffb7d0;
+  clip-path: polygon(0 0, 100% 0, 50% 55%);
+}
+
+.envelope-heart {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  font-size: 45px;
+  z-index: 3;
+}
+
+.letter-button {
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #f46c9b, #cb376c);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #d0447644;
+  max-width: 100%;
+}
+
+.letter-opened-section {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.letter-paper-open {
+  position: relative;
+  padding: 35px 35px 30px;
+  background: #fff8f5;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px #ad4b7544;
+  border: 1px solid #ffe0eb;
+  text-align: left;
+}
+
+.letter-paper-decoration {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.letter-paper-open h2 {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  color: #b33d6a;
+  margin-bottom: 20px;
+}
+
+.letter-paper-open p {
+  color: #805064;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.letter-paper-open .letter-ending {
+  font-weight: bold;
+  color: #c83f77;
+}
+
+.letter-paper-open .letter-signature {
+  font-style: italic;
+  text-align: right;
+  margin-top: 25px;
+  margin-bottom: 0;
+  color: #a34d70;
+}
+
+.letter-continue {
+  margin-top: 25px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .letter-content {
+    max-width: 600px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .letter-page {
+    padding: 25px 18px;
+  }
+
+  .letter-teddy {
+    font-size: 55px;
+  }
+
+  .letter-heading {
+    font-size: 30px;
+  }
+
+  .letter-description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .letter-envelope {
+    width: 250px;
+    height: 165px;
+  }
+
+  .letter-envelope-section {
+    gap: 35px;
+    padding-top: 35px;
+  }
+
+  .letter-paper-open {
+    padding: 25px 20px;
+  }
+
+  .letter-paper-open h2 {
+    font-size: 21px;
+  }
+
+  .letter-paper-open p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .letter-button {
+    width: 100%;
+    max-width: 320px;
+    font-size: 14px;
+  }
+}
+
+@media (max-height: 650px) {
+  .letter-page {
+    padding: 18px;
+  }
+
+  .letter-teddy {
+    font-size: 45px;
+  }
+
+  .letter-envelope-section {
+    padding-top: 15px;
+  }
+}
