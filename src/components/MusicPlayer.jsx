@@ -25,7 +25,7 @@ export default function MusicPlayer({ page }) {
   // Pages 1-4: Ishq Hai
   // Pages 5-6: Mast Magan
   // Assumes page is numbered 1 through 6.
-  const songIndex = page >= 4 ? 1 : 0;
+  const songIndex = page >= 5 ? 1 : 0;
 
   useEffect(() => {
     const audios = SONGS.map((song) => {
@@ -168,6 +168,27 @@ export default function MusicPlayer({ page }) {
     switchSong();
   }, [songIndex]);
 
+
+  useEffect(() => {
+  const startOnInteraction = () => {
+    if (!playingRef.current) {
+      startSong(songIndex);
+      activeIndex.current = songIndex;
+    }
+
+    window.removeEventListener("pointerdown", startOnInteraction);
+    window.removeEventListener("keydown", startOnInteraction);
+  };
+
+  window.addEventListener("pointerdown", startOnInteraction);
+  window.addEventListener("keydown", startOnInteraction);
+
+  return () => {
+    window.removeEventListener("pointerdown", startOnInteraction);
+    window.removeEventListener("keydown", startOnInteraction);
+  };
+}, []);
+
   const toggleMusic = async () => {
     if (isPlaying) {
       cancelAnimationFrame(fadeRef.current);
@@ -188,6 +209,7 @@ export default function MusicPlayer({ page }) {
   return (
     <button
       type="button"
+      data-music-toggle
       onClick={toggleMusic}
       aria-label={isPlaying ? "Pause music" : "Play music"}
       title={isPlaying ? "Pause music" : "Play music"}
