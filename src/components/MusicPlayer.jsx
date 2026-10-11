@@ -1,4 +1,4 @@
-
+import MusicWelcomeModal from "./MusicWelcomeModal";
 import { useEffect, useRef, useState } from "react";
 
 const SONGS = [
@@ -21,6 +21,7 @@ export default function MusicPlayer({ page }) {
   const fadeRef = useRef(null);
   const playingRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showMusicModal, setShowMusicModal] = useState(true);
 
   // Pages 1-4: Ishq Hai
   // Pages 5-6: Mast Magan
@@ -168,38 +169,16 @@ export default function MusicPlayer({ page }) {
     switchSong();
   }, [songIndex]);
 
+const handleModalPlay = () => {
+  // Call playback directly during the user's tap.
+  startSong(songIndex);
+  activeIndex.current = songIndex;
+  setShowMusicModal(false);
+};
 
-  useEffect(() => {
-  const startOnInteraction = () => {
-    if (!playingRef.current) {
-      startSong(songIndex);
-      activeIndex.current = songIndex;
-    }
-
-    window.removeEventListener("pointerdown", startOnInteraction);
-    window.removeEventListener("keydown", startOnInteraction);
-  };
-
-  window.addEventListener("pointerdown", startOnInteraction);
-  window.addEventListener("keydown", startOnInteraction);
-
-  return () => {
-    window.removeEventListener("pointerdown", startOnInteraction);
-    window.removeEventListener("keydown", startOnInteraction);
-  };
-}, []);
-
-
-useEffect(() => {
-  const tryAutoplay = () => {
-    if (playingRef.current) return;
-
-    startSong(songIndex);
-    activeIndex.current = songIndex;
-  };
-
-  tryAutoplay();
-}, []);
+const handleModalSkip = () => {
+  setShowMusicModal(false);
+};
 
   const toggleMusic = async () => {
     if (isPlaying) {
@@ -219,6 +198,14 @@ useEffect(() => {
   };
 
   return (
+  <>
+    {showMusicModal && (
+      <MusicWelcomeModal
+        onPlay={handleModalPlay}
+        onSkip={handleModalSkip}
+      />
+    )}
+
     <button
       type="button"
       data-music-toggle
@@ -243,5 +230,6 @@ useEffect(() => {
     >
       {isPlaying ? "♫" : "▶"}
     </button>
+    </>
   );
 }
